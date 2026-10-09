@@ -228,6 +228,7 @@ void CUIPdaWnd::Show(bool status)
 
         if (pUILogsWnd)
         {
+            Device.remove_from_seq_parallel(m_logs_work_delegate);
             m_logs_work_delegate = fastdelegate::FastDelegate0<>(pUILogsWnd, &CUILogsWnd::PerformWork);
             Device.seqParallel.push_back(m_logs_work_delegate);
         }
